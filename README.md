@@ -22,7 +22,9 @@ Please, find usage ***'PrintMatrix'*** function below. For every iteration you p
 | exitRow       | *int*         | end row                                               |
 | exitCol       | *int*         | end column                                            |
 
-All you actually need to do, just pass all parameters above to display snapshot of current state.
+All you actually need to do, just pass all parameters above to display snapshot of current state. 
+The code below are just example of usage this function to visualize BFS Shortest path algorithm.
+
 Enjoy !!!
 
 ```Go
