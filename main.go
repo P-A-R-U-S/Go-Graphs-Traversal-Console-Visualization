@@ -81,6 +81,16 @@ func main() {
 		ClearConsole()
 		_ = findPath_DFS(tc.maze, tc.startRow, tc.startCol, tc.exitRow, tc.exitCol)
 		PressToContinue()
+
+		// BFS
+		ClearConsole()
+		fmt.Println("--------------------------------------------------------")
+		fmt.Println("Breath-First-Search")
+		fmt.Println("--------------------------------------------------------")
+		ClearConsole()
+		_ = findPath_BFS(tc.maze, tc.startRow, tc.startCol, tc.exitRow, tc.exitCol)
+		PressToContinue()
+
 	}
 }
 
