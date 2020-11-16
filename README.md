@@ -5,7 +5,7 @@ Simple function to visualize graph traversal with any algorithms like DFS, BFS, 
 
 | **Depth-first search (DFS) Algorithm**    | **Breadth First Search (BFS) Algorithm**  |
 | ----------------------------------------- | ----------------------------------------- |
-| ![](_DFS.gif)                              | ![](_BFS.gif)                              |
+| ![](DFS.gif)                              | ![](BFS.gif)                              |
 
 Please, find usage ***'PrintMatrix'*** function below. For every iteration you pass
 
@@ -80,7 +80,7 @@ func findPath_BFS(maze [][]bool, startRow, startCol, exitRow, exitCol int) [][2]
 		}
 
 		interation++
-		<b>PrintMatrix("Breadth First Search (BFS)", maze, visited, q, path, interation, startRow, startCol, exitRow, exitCol)<b>
+		PrintMatrix("Breadth First Search (BFS)", maze, visited, q, path, interation, startRow, startCol, exitRow, exitCol)
 	}
 
 	return path
