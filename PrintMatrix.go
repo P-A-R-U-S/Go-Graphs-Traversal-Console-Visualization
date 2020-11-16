@@ -1,4 +1,4 @@
-package Go_Graphs_Traversal_Console_Visualization
+package main
 
 import (
 	"fmt"
@@ -7,69 +7,69 @@ import (
 	"time"
 )
 
-func PrintMatrix(title string, matrix [][]bool, visited [][]bool, stack [][2]int,  path [][2]int, iteration int, startRow, startCol, exitRow, exitCol int)  {
+func PrintMatrix(title string, matrix [][]bool, visited [][]bool, stack [][2]int, path [][2]int, iteration int, startRow, startCol, exitRow, exitCol int) {
 	// Reset to default
-	const  RESET = "\u001b[0m"
+	const RESET = "\u001b[0m"
 
 	// Symbols Colors
 	const (
-		RED = "\u001b[31m"
-		GREEN = "\u001b[32m"
-		BLACK = "\u001b[30m"
-		YELLOW = "\u001b[33m"
-		BLUE = "\u001b[34m"
+		RED     = "\u001b[31m"
+		GREEN   = "\u001b[32m"
+		BLACK   = "\u001b[30m"
+		YELLOW  = "\u001b[33m"
+		BLUE    = "\u001b[34m"
 		MAGENTA = "\u001b[35m"
-		CYAN = "\u001b[36m"
-		WHITE = "\u001b[37m"
+		CYAN    = "\u001b[36m"
+		WHITE   = "\u001b[37m"
 
-		BRIGHT_BLACK = "\u001b[30;1m"
-		BRIGHT_RED = "\u001b[31;1m"
-		BRIGHT_GREEN = "\u001b[32;1m"
-		BRIGHT_YELLOW = "\u001b[33;1m"
-		BRIGHT_BLUE = "\u001b[34;1m"
+		BRIGHT_BLACK   = "\u001b[30;1m"
+		BRIGHT_RED     = "\u001b[31;1m"
+		BRIGHT_GREEN   = "\u001b[32;1m"
+		BRIGHT_YELLOW  = "\u001b[33;1m"
+		BRIGHT_BLUE    = "\u001b[34;1m"
 		BRIGHT_MAGENTA = "\u001b[35;1m"
-		BRIGHT_CYAN = "\u001b[36;1m"
-		BRIGHT_WHITE = "\u001b[37;1m"
+		BRIGHT_CYAN    = "\u001b[36;1m"
+		BRIGHT_WHITE   = "\u001b[37;1m"
 	)
 
 	// Background Color
 	const (
-		BACKGROUND_BLACK = "\u001b[40m"
-		BACKGROUND_RED = "\u001b[41m"
-		BACKGROUND_GREEN = "\u001b[42m"
-		BACKGROUND_YELLOW = "\u001b[43m"
-		BACKGROUND_BLUE = "\u001b[44m"
+		BACKGROUND_BLACK   = "\u001b[40m"
+		BACKGROUND_RED     = "\u001b[41m"
+		BACKGROUND_GREEN   = "\u001b[42m"
+		BACKGROUND_YELLOW  = "\u001b[43m"
+		BACKGROUND_BLUE    = "\u001b[44m"
 		BACKGROUND_MAGENTA = "\u001b[45m"
-		BACKGROUND_CYAN = "\u001b[46m"
-		BACKGROUND_WHITE = "\u001b[47m"
+		BACKGROUND_CYAN    = "\u001b[46m"
+		BACKGROUND_WHITE   = "\u001b[47m"
 
-		BACKGROUND_BRIGHT_BLACK = "\u001b[40;1m"
-		BACKGROUND_BRIGHT_RED = "\u001b[41;1m"
-		BACKGROUND_BRIGHT_GREEN = "\u001b[42;1m"
-		BACKGROUND_BRIGHT_YELLOW = "\u001b[43;1m"
-		BACKGROUND_BRIGHT_BLUE = "\u001b[44;1m"
+		BACKGROUND_BRIGHT_BLACK   = "\u001b[40;1m"
+		BACKGROUND_BRIGHT_RED     = "\u001b[41;1m"
+		BACKGROUND_BRIGHT_GREEN   = "\u001b[42;1m"
+		BACKGROUND_BRIGHT_YELLOW  = "\u001b[43;1m"
+		BACKGROUND_BRIGHT_BLUE    = "\u001b[44;1m"
 		BACKGROUND_BRIGHT_MAGENTA = "\u001b[45;1m"
-		BACKGROUND_BRIGHT_CYAN = "\u001b[46;1m"
-		BACKGROUND_BRIGHT_WHITE = "\u001b[47;1m"
+		BACKGROUND_BRIGHT_CYAN    = "\u001b[46;1m"
+		BACKGROUND_BRIGHT_WHITE   = "\u001b[47;1m"
 	)
 
 	// Symbols
 	const (
-		START = "*"
-		END = "X"
-		VISITED = "◼"
-		PATH = "◼"
+		START    = "*"
+		END      = "X"
+		VISITED  = "◼"
+		PATH     = "◼"
 		OBSTACLE = " "
-		ENEMY = ""
-		SPACE = " "
+		ENEMY    = ""
+		SPACE    = " "
 	)
 
 	ROWS := len(visited)
 	COLS := len(visited[0])
 
 	// Clean
-	fmt.Print("\u001b[1000D") //Move left
-	fmt.Print("\u001b[" +  strconv.Itoa(ROWS + 8) + "A") // Move up
+	fmt.Print("\u001b[1000D")                         //Move left
+	fmt.Print("\u001b[" + strconv.Itoa(ROWS+8) + "A") // Move up
 
 	fmt.Println(SPACE, SPACE, title)
 	fmt.Println(SPACE, SPACE, strings.Repeat("===", COLS))
@@ -91,7 +91,7 @@ func PrintMatrix(title string, matrix [][]bool, visited [][]bool, stack [][2]int
 			fmt.Print(RESET)
 
 			if !matrix[row][col] {
-				fmt.Print(BACKGROUND_WHITE, SPACE,  OBSTACLE, SPACE)
+				fmt.Print(BACKGROUND_WHITE, SPACE, OBSTACLE, SPACE)
 				continue
 			}
 
@@ -141,7 +141,7 @@ func PrintMatrix(title string, matrix [][]bool, visited [][]bool, stack [][2]int
 		fmt.Println(RESET)
 	}
 	fmt.Println(RESET)
-	fmt.Print(SPACE,SPACE)
+	fmt.Print(SPACE, SPACE)
 	fmt.Printf("ITERATION: %4d", iteration)
 	fmt.Println()
 
@@ -151,8 +151,4 @@ func PrintMatrix(title string, matrix [][]bool, visited [][]bool, stack [][2]int
 	//fmt.Println(GREEN, VISITED, RESET, " - Path")
 
 	time.Sleep(time.Millisecond * 10)
-}
-
-func ClearConsole() {
-	fmt.Print("\u001b[H\u001b[2J")
 }
